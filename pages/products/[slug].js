@@ -4,12 +4,12 @@ import { useRouter } from "next/router";
 import { GET_PRODUCT } from "../../graphql/query";
 import styled from "styled-components";
 import { AiFillPlusCircle, AiFillMinusCircle } from "react-icons/ai";
-import { useStoreContext } from "../../lib/context";
 import Image from "next/image";
+import { useStoreContext } from "../../lib/context";
 
 const ProductDetails = () => {
   const { query } = useRouter();
-  const { productQty, cardItems, increateQty, decreaseQty, handleOnAdd } =
+  const { productQty, cartItems, increaseQty, decreaseQty, handleOnAdd } =
     useStoreContext();
 
   const [results] = useQuery({
@@ -21,12 +21,17 @@ const ProductDetails = () => {
   if (error) return <p>Ugh.. {error.message}</p>;
   const product = data.products.data[0].attributes;
   const { title, description, image, slug } = product;
-
   const { url, width, height } = image.data.attributes.formats.medium;
 
   return (
     <ProductDetailsStyled>
-      {/* <Image src={url} alt={title} width={width} height={height} /> */}
+      {/* for Next Image component */}
+      {/* <Image
+        src={url}
+        alt={title}
+        width={width}
+        height={height}
+      /> */}
       <img src={url} alt={title} />
 
       <ProductInfo>
@@ -38,7 +43,7 @@ const ProductDetails = () => {
             <AiFillMinusCircle />
           </button>
           <p>{productQty}</p>
-          <button onClick={increateQty}>
+          <button onClick={increaseQty}>
             <AiFillPlusCircle />
           </button>
         </Quantity>

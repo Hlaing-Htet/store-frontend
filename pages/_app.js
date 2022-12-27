@@ -1,11 +1,11 @@
 import Head from "next/head";
-import "../styles/globals.css";
+import "styles/globals.css";
 
 import { createClient, Provider } from "urql";
-import Navbar from "../components/Navbar";
-import { StateContextProvider } from "../lib/context";
+import Navbar from "components/Navbar";
+import { StateContextProvider } from "lib/context";
 
-const client = createClient({ url: "http://localhost:1337/graphql" });
+const client = createClient({ url: process.env.NEXT_PUBLIC_GRAPHQL_URL });
 
 export default function App({ Component, pageProps }) {
   return (

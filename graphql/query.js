@@ -1,22 +1,21 @@
 export const GET_PRODUCTS = `
-query{
-  products{
-    data{
+  query getFilteredProducts($sort: [String], $pagination: PaginationArg, $filters: ProductFiltersInput) {
+  products(sort: $sort, pagination: $pagination, filters: $filters) {
+    data {
       id
-      attributes{
+      attributes {
         title
         slug
         description
         price
-        image{
-          data{
-            attributes{
-            formats
-             
+        image {
+          data {
+            attributes {
+              formats
             }
           }
         }
-       
+        
       }
     }
   }
@@ -43,4 +42,17 @@ query getProducts($slug: String!) {
       }
     }
   }
+`;
+export const GET_CATEGORIES = `
+query {
+  categories{
+    data{
+      id
+      attributes{
+        name
+        slug
+      }
+    }
+  }
+}
 `;

@@ -19,6 +19,7 @@ const Product = ({ product }) => {
 
 export default Product;
 const ProductStyled = styled.div`
+  width: 16rem;
   background-color: white;
   position: relative;
   display: flex;

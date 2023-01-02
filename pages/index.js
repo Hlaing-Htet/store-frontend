@@ -68,8 +68,8 @@ export default function Home() {
 }
 
 const ProductGallery = styled.div`
-  display: grid;
-  /*  fraction  */
-  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
-  grid-gap: 2rem;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
 `;

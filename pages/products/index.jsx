@@ -14,7 +14,7 @@ const index = () => {
       ? {
           filters: {
             category: {
-              slug: { eq: selectedCategory ? selectedCategory : null },
+              slug: { eq: selectedCategory },
             },
           },
         }
@@ -78,8 +78,12 @@ const index = () => {
 
 export default index;
 const ProductGallery = styled.div`
-  display: grid;
-  /*  fraction  */
+  /* display: grid;
+ 
   grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
-  grid-gap: 2rem;
+  grid-gap: 2rem; */
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
 `;

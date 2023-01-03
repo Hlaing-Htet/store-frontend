@@ -8,6 +8,7 @@ const { AnimatePresence, motion } = require("framer-motion");
 import { useStoreContext } from "../lib/context";
 
 import Cart from "./Cart";
+import UserMenuItem from "./UserMenuItem";
 
 const Navbar = () => {
   const { showCart, setShowCart, totalQuantity } = useStoreContext();
@@ -15,6 +16,7 @@ const Navbar = () => {
     <NavStyled className=" container mx-auto">
       <Link href="/">Y.E.C Store</Link>
       <NavItems>
+        <UserMenuItem />
         <li
           onClick={() => setShowCart(true)}
           className={

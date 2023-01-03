@@ -10,7 +10,7 @@ export async function getServerSideProps(params) {
       expand: ["line_items"],
     }
   );
-
+  console.log(order.line_items);
   return {
     props: { order },
   };
@@ -43,13 +43,13 @@ const Success = ({ order }) => {
           {/* products */}
           <div className="mt-3">
             <h3 className="font-semibold">Products</h3>
-            {/* {order.line_items.map((item) => (
+            {order.line_items.data.map((item) => (
               <div key={item.id}>
                 <p>Product: {item.description}</p>
                 <p>Quantity: {item.quantity}</p>
                 <p>Price: {item.price.unit_amount}</p>
               </div>
-            ))} */}
+            ))}
           </div>
         </div>
         <button

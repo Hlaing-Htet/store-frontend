@@ -1,6 +1,6 @@
 const stripe = require("stripe")(process.env.NEXT_PUBLIC_STRIPE_SECRET_KEY);
 
-export default async function stripeHandler(req, res) {
+export default async function StripeHandler(req, res) {
   if (req.method === "POST") {
     try {
       const session = await stripe.checkout.sessions.create({

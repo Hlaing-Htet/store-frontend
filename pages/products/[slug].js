@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import { useQuery } from "urql";
 import { useRouter } from "next/router";
 import { GET_PRODUCT } from "graphql/query";
@@ -6,6 +6,7 @@ import styled from "styled-components";
 import { AiFillPlusCircle, AiFillMinusCircle } from "react-icons/ai";
 import Image from "next/image";
 import { useStoreContext } from "lib/context";
+import Toast, { toast } from "react-hot-toast";
 
 const ProductDetails = () => {
   const [productQty, setProductQty] = useState(1);
@@ -31,6 +32,11 @@ const ProductDetails = () => {
   const { title, description, image, slug } = product;
   const { url, width, height } = image.data.attributes.formats.medium;
 
+  const handleAddToCard = () => {
+    handleOnAdd(product, productQty);
+    toast.success(`${title} added to card!`, { duration: 1500 });
+  };
+
   return (
     <ProductDetailsStyled className=" container mx-auto">
       {/* for Next Image component */}
@@ -55,7 +61,7 @@ const ProductDetails = () => {
             <AiFillPlusCircle />
           </button>
         </Quantity>
-        <CartButtonStyled onClick={() => handleOnAdd(product, productQty)}>
+        <CartButtonStyled onClick={() => handleAddToCard()}>
           Add to Cart
         </CartButtonStyled>
       </ProductInfo>

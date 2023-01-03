@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 
 export const getServerSideProps = withPageAuthRequired();
 
-const profile = ({ user }) => {
+const Profile = ({ user }) => {
   const router = useRouter();
   return (
     <main className=" bg-white border w-1/2 p-4 rounded-lg">
@@ -24,4 +24,4 @@ const profile = ({ user }) => {
   );
 };
 
-export default profile;
+export default Profile;

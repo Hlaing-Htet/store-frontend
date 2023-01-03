@@ -6,7 +6,7 @@ import Product from "components/Product";
 import styled from "styled-components";
 import Link from "next/link";
 
-const index = () => {
+const Index = () => {
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [results, reexecuteQuery] = useQuery({
     query: GET_PRODUCTS,
@@ -76,7 +76,7 @@ const index = () => {
   );
 };
 
-export default index;
+export default Index;
 const ProductGallery = styled.div`
   /* display: grid;
  
